@@ -1,0 +1,6 @@
+# Incremental v7 patch — builds FROM existing v6 image, overlaying only the 3 changed files.
+# Run with: az acr build --registry liftshopbotacr --image liftshop-teams-bot:latest -f Dockerfile.patch .
+FROM liftshopbotacr.azurecr.io/liftshop-teams-bot:latest
+COPY liftmind/scope_qualifier.py /app/liftmind/scope_qualifier.py
+COPY liftmind/rag.py /app/liftmind/rag.py
+COPY liftmind/slang_interceptor.py /app/liftmind/slang_interceptor.py
